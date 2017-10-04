@@ -199,8 +199,7 @@ int encrypt(char *key, char *in, int inl, char *out) {
 
 	int cipher_len = 0;
 
-	EVP_CIPHER_CTX *ctx = (EVP_CIPHER_CTX *) malloc(sizeof(EVP_CIPHER_CTX));
-
+	EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
 	EVP_CIPHER_CTX_init(ctx);
 
 	EVP_CIPHER_CTX_set_padding(ctx, EVP_CIPH_NO_PADDING);
@@ -335,7 +334,7 @@ int decrypt(char *key, char *in, int inl, char *out) {
 
 	int outl = 0;
 
-	EVP_CIPHER_CTX *ctx = (EVP_CIPHER_CTX *) malloc(sizeof(EVP_CIPHER_CTX));
+	EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
 
 	EVP_CIPHER_CTX_init(ctx);
 
